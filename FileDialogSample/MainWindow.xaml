@@ -1,0 +1,59 @@
+﻿<Window x:Class="FileDialogSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fd="clr-namespace:FileDialog;assembly=FileDialog"
+        xmlns:local="clr-namespace:FileDialogSample"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="1000"
+        Height="600"
+        mc:Ignorable="d">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <UniformGrid Grid.Row="0"
+                         Rows="1">
+                <Button Command="{x:Static fd:FileDialog.BackCommand}"
+                        CommandTarget="{Binding ElementName=FileDialog}"
+                        Content="3"
+                        FontFamily="Marlett"
+                        FontSize="20" />
+                <Button Command="{x:Static fd:FileDialog.ForwardCommand}"
+                        CommandTarget="{Binding ElementName=FileDialog}"
+                        Content="4"
+                        FontFamily="Marlett"
+                        FontSize="20" />
+                <Button Command="{x:Static fd:FileDialog.UpCommand}"
+                        CommandTarget="{Binding ElementName=FileDialog}"
+                        Content="5"
+                        FontFamily="Marlett"
+                        FontSize="20" />
+            </UniformGrid>
+
+            <Label Grid.Column="1"
+                   Content="{Binding ElementName=FileDialog,
+                                     Path=Path}" />
+        </Grid>
+
+        <fd:FileDialog x:Name="FileDialog"
+                       Grid.Row="1"
+                       FileDoubleClicked="FileDialog_FileDoubleClicked"
+                       FolderWidth="300"
+                       Path="{Binding Path}" />
+    </Grid>
+
+</Window>
