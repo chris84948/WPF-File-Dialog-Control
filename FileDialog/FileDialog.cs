@@ -18,6 +18,7 @@ namespace FileDialog
         private Stack<string> _previousPaths = new Stack<string>();
         private Stack<string> _nextPaths = new Stack<string>();
         private bool _updatePreviousStack = false;
+        private bool _updateFolderLocation = true;
 
         // ROUTED COMMANDS
         private static RoutedCommand _forwardCommand = new RoutedCommand();
@@ -170,7 +171,10 @@ namespace FileDialog
             if (fileDialog._folderTreeView == null)
                 fileDialog._startingPath = newVal;
             else
-                fileDialog.SelectFolder(fileDialog._folderTreeView, newVal);
+            {
+                if (fileDialog._updateFolderLocation)
+                    fileDialog.SelectFolder(fileDialog._folderTreeView, newVal);
+            }
         }
 
         private void CanExecuteForwardCommand(object sender, CanExecuteRoutedEventArgs e)
@@ -228,9 +232,12 @@ namespace FileDialog
             else
                 _updatePreviousStack = true;
 
+            // The user selected the folder location, don't force it to update again
+            _updateFolderLocation = false;
             SetValue(PathProperty, folder.Path);
             SetValue(BindableSelectedItemProperty, folder);
             SetValue(SelectedFolderFilesPropertyKey, GetFolderFiles(folder.Path));
+            _updateFolderLocation = true;
         }
 
         private void FilesListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)

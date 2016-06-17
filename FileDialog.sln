@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDialog", "FileDialog\FileDialog.csproj", "{AAFD058E-0F71-47F4-BC24-1F62F5BF0B93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDialogSample", "FileDialogTest\FileDialogSample.csproj", "{7576AC80-5DD4-42BB-ADBB-8120CE4507BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDialogSample", "FileDialogSample\FileDialogSample.csproj", "{7576AC80-5DD4-42BB-ADBB-8120CE4507BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
