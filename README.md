@@ -10,7 +10,7 @@ For some developers, the bare bones style on the dialog may be enough to use as-
 
 Please see the sample on how to use the control.
 
-![Screenshot](https://raw.githubusercontent.com/chris84948/WPF_File_Dialog_Control/master/Images/AppScreenshot.png)
+![Screenshot](https://raw.githubusercontent.com/chris84948/WPF-File-Dialog-Control/master/Images/AppScreenshot.png)
 
 -- Note: The buttons and file location are not part of the Custom Control, they only exist to show you how to use it!
 
